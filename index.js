@@ -4,16 +4,26 @@ function solveRect(l,b)
 {
     console.log("solving for l="+l + "and b="+b);
 
-    if(l<=0 ||b<=0){
-        console.log("rectangle dimensions must be positive : l="+l + ", and b=" +b);
-    }
+    rect(l,b,(err,rectangle)=>{
 
-    else{
+      if(err)
+      {
+          console.log("ERROR:" ,err.message)
+      }
+ 
+      else{
 
-        console.log("the area of the rectangle is" +rect.area(l,b));
+        console.log("the area of the rectangle of dimensions l ="+l + "and b =" +b +" is " + rectangle.area());
 
-        console.log("the perimeter of the rectangle is" +rect.perimeter(l,b));
-    }
+        console.log("the perimeter of the rectangle of dimensions l ="+l + "and b =" +b +" is " + rectangle.perimeter());
+      }
+
+    });
+
+    console.log("This statement is after the call to rect()");
+        
+        
+
 }
 
 solveRect(2,4);
